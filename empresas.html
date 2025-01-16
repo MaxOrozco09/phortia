@@ -110,6 +110,7 @@
     <script>
         document.getElementById('submitButton').addEventListener('click', async () => {
             // Recoger los datos del formulario
+            const form = document.getElementById('empresaForm'); // Obtén el formulario completo
             const formData = {
                 nombre_empresa: document.getElementById('nombre-empresa').value,
                 correo: document.getElementById('correo').value,
@@ -134,6 +135,7 @@
                 const result = await response.json();
                 if (response.ok) {
                     alert(result.message); // Éxito
+                    form.reset();
                 } else {
                     alert(`Error: ${result.message}`); // Error del servidor
                 }
