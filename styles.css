@@ -213,7 +213,6 @@ main {
     color: #ccc;
 }
 
-
 /* Banner Styles */
 .banner {
     position: relative;
@@ -244,7 +243,6 @@ main {
     color: #fff;
     max-width: 300px; /* Límite máximo para el texto */
     padding: 10px; /* Espaciado interno para el contenido */
-  
 }
 
 .header-content .logo {
@@ -257,6 +255,49 @@ main {
     margin: 0;
     color: #1b1e76;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Banner */
+    .header-content {
+        text-align: center; /* Centrar texto */
+        width: 90%; /* Ajustar ancho */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .header-content .logo {
+        max-width: 150px; /* Reducir tamaño del logo */
+        margin: 0 auto 10px; /* Centrar y añadir margen inferior */
+    }
+
+    .header-content p {
+        font-size: 1em; /* Reducir tamaño del texto */
+    }
+
+    /* Footer */
+    .footer-container {
+        flex-direction: column; /* Apilar secciones */
+        align-items: center; /* Centrar contenido */
+        gap: 20px;
+    }
+
+    .footer-section, .footer-logo {
+        flex: 1 1 auto; /* Ajustar el ancho */
+        text-align: center; /* Centrar contenido */
+        margin: 10px 0;
+    }
+
+    .social-icons {
+        justify-content: center; /* Centrar íconos */
+    }
+
+    .footer-links li {
+        margin: 0 10px; /* Reducir margen entre enlaces */
+    }
+}
+
 
 /* General Styles for Forms */
 .registration-form {
@@ -345,4 +386,5 @@ main {
     border-color: #0f145a; /* Borde azul más oscuro al enfocar */
     background-color: #f9f9f9; /* Fondo ligeramente más claro al enfocar */
 }
+
 
