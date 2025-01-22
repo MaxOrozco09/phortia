@@ -1,3 +1,4 @@
+
 /* General Styles */
 body {
     font-family: 'Raleway', sans-serif;
@@ -127,9 +128,9 @@ main {
 
 /* Footer Styles */
 .footer {
-    background-color: #840310; /* Fondo rojo oscuro */
-    color: #FFF4E7; /* Texto blanco crema */
-    padding: 40px 0; /* Espaciado superior e inferior */
+    background-color: #840310; 
+    color: #FFF4E7; 
+    padding: 40px 0; 
     text-align: center;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -145,9 +146,23 @@ main {
 }
 
 .footer-section {
-    flex: 1 1 33%; /* Cada sección ocupa 1/3 del espacio */
+    flex: 1 1 33%; 
     text-align: center;
     margin: 10px 0;
+}
+
+.social-section {
+    text-align: left; /* Alinea las redes sociales a la izquierda */
+}
+
+.links-section {
+    text-align: right; /* Alinea los enlaces a la derecha */
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    color: #FFF4E7;
+    margin-bottom: 10px;
 }
 
 .footer-links {
@@ -156,24 +171,53 @@ main {
     margin: 0;
 }
 
+.footer-links li {
+    margin: 5px 0;
+}
+
 .footer-links a {
     text-decoration: none;
     color: #FFF4E7;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.9em;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #FF6800;
 }
 
 .social-icons {
     display: flex;
     gap: 15px;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+.social-icons a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+}
+
+.footer-logo-image {
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #FFF4E7;
 }
 
 /* Banner Styles */
 .banner {
     position: relative;
     height: 200px; /* Altura del banner */
-    background-color: #D10531; /* Fondo rojo vibrante */
+    background-color: #D10531; 
     overflow: hidden;
     display: flex; /* Flexbox para centrar contenido */
     flex-direction: column; /* Organiza el contenido verticalmente */
@@ -185,7 +229,7 @@ main {
 .banner-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ajusta la imagen al contenedor */
+    object-fit: cover; 
     position: absolute;
     top: 0;
     left: 0;
@@ -195,67 +239,44 @@ main {
 .header-content {
     position: relative;
     z-index: 2;
-    text-align: left; /* Mantiene el texto alineado a la izquierda */
+    text-align: left; /* Alinea texto a la izquierda */
     color: #FFF4E7; /* Texto blanco crema */
-    max-width: 350px; /* Amplié el límite máximo para el texto */
-    padding: 15px; /* Espaciado interno ajustado */
+    max-width: 350px; 
+    padding: 15px; /* Espaciado interno */
     font-family: 'Raleway', sans-serif;
 }
 
 .header-content .logo {
-    max-width: 200px; /* Tamaño del logo consistente en todos los dispositivos */
-    margin-bottom: 15px; /* Espaciado entre el logo y el texto */
+    max-width: 200px; 
+    margin-bottom: 15px; 
 }
 
 .header-content p {
-    font-size: 1.3em; /* Tamaño de fuente consistente */
+    font-size: 1.3em; 
     margin: 0;
     color: #FFF4E7; 
-    font-family: 'Merriweather Sans', sans-serif; /* Tipografía del texto */
-}
-/* Section Styles */
-.section {
-    margin-bottom: 20px; /* Espaciado entre secciones */
-    padding: 20px; /* Espaciado interno */
-    border: 1px solid #D10531; /* Bordes rojo vibrante */
-    border-radius: 6px;
-    background-color: #FFF4E7; /* Fondo blanco crema */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    max-width: 900px; /* Ancho máximo ajustado */
-    margin: 0 auto; /* Centrado horizontal */
+    font-family: 'Merriweather Sans', sans-serif; 
 }
 
-.section-content {
-    text-align: center;
-}
-
-.section-content h2 {
-    font-size: 1.8em;
-    color: #D10531; /* Rojo vibrante */
-    margin-bottom: 10px;
-}
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .banner {
-        height: 200px; /* Mantén la misma altura del banner */
-    }
-
+    /* Banner */
     .header-content {
-        text-align: left; /* Alineación a la izquierda */
-        width: auto; /* Mantén el ancho natural */
-        top: auto; /* Elimina la transformación */
-        left: auto; /* Elimina la transformación */
-        transform: none; /* Elimina cualquier transformación */
+        text-align: center;
+        width: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .header-content .logo {
-        max-width: 200px; /* Tamaño del logo igual al de computadora */
+        max-width: 150px;
+        margin: 0 auto 10px;
     }
 
-    .footer-container {
-        flex-direction: column; /* Secciones apiladas en móvil */
+    .header-content p {
+        font-size: 1em;
     }
-}
 
     /* Footer */
     .footer-container {
@@ -371,5 +392,3 @@ main {
     border-color: #A10327; /* Borde rojo más oscuro al enfocar */
     background-color: #f9f9f9; /* Fondo ligeramente más claro al enfocar */
 }
-
-
