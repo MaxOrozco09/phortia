@@ -11,7 +11,7 @@
     <header class="banner">
         <img src="imagenes/banner.webp" alt="Phortia Banner" class="banner-image">
         <div class="header-content">
-            <img src="imagenes/logo.png" alt="Phortia Logo" class="logo">
+            <img src="imagenes/logo-png.png" alt="Phortia Logo" class="logo">
             <p>Conectando transportistas y empresas de forma inteligente.</p>
         </div>
     </header>
@@ -49,8 +49,8 @@
                         <input type="email" id="correo" name="correo" required>
                     </div>
                     <div class="form-group">
-                        <label for="telefono">Teléfono:</label>
-                        <input type="tel" id="telefono" name="telefono" required>
+                        <label for="telefono">Teléfono de Contacto:</label>
+                        <input type="tel" id="telefono" name="telefono" maxlength="10" required>
                     </div>
                     <div class="form-group">
                         <label for="curp">CURP:</label>
@@ -66,11 +66,11 @@
                     </div>
                     <div class="form-group">
                         <label for="ubicacion">Ubicación:</label>
-                        <input type="text" id="ubicacion" name="ubicacion" required>
+                        <input type="text" id="ubicacion" name="ubicacion" placeholder="Escribe el nombre completo. NO uses abreviaturas" required>
                     </div>
                     <div class="form-group">
                         <label for="destinos">Destinos a Los Que Puede Ir:</label>
-                        <input type="text" id="destinos" name="destinos" required>
+                        <input type="text" id="destinos" name="destinos" placeholder="Divide tus destinos con ',' Ejemplo: Monterrey, Guadalajara" required>
                     </div>
                     <div class="form-group">
                         <label for="antecedentes">Carta de Antecedentes No Penales:</label>
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="footer-logo">
-                <a href="index.html"><img src="imagenes/logo.png" alt="Phortia Logo" class="footer-logo-image"></a>
+                <a href="index.html"><img src="imagenes/logo-f.png" alt="Phortia Logo" class="footer-logo-image"></a>
             </div>
             <div class="footer-section links-section">
                 <h4>Enlaces</h4>
@@ -168,7 +168,6 @@
             }
         });
     </script>
-    
 </body>
 </html>
 
