@@ -220,13 +220,16 @@
             try {
                 const response = await fetch('https://phortia-backend.onrender.com/submit_transportista', {
                     method: 'POST',
-                    body: dataToSend // Enviar como FormData para incluir archivos
+                    headers:{
+                        'Content-Type': 'aplication/json'
+                    }),
+                    body: JSON.stringify(formData)
                 });
     
                 if (response.ok) {
                     const result = await response.json();
                     alert(result.message);
-                    document.getElementById('transportistaForm').reset();
+                    form.reset();
                 } else {
                     alert('Error al registrar el transportista. Intente nuevamente.');
                 }
