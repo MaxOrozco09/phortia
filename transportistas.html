@@ -166,7 +166,48 @@
         }
     }
 
+    function validarCampos() {
+        const requiredFields = [
+            'nombre', 'correo', 'telefono', 'curp', 'rfc', 'maquinaria',
+            'ano_transporte', 'capacidad_peso', 'ubicacion', 'destinos',
+            'frecuencia_ruta', 'fecha_inicio', 'fecha_fin', 'viajes_internacionales',
+            'anticipo'
+        ];
+
+        for (let fieldId of requiredFields) {
+            const field = document.getElementById(fieldId);
+            if (!field.value.trim()) {
+                alert(`Por favor, completa el campo: ${field.previousElementSibling.textContent}`);
+                field.focus();
+                return false;
+            }
+        }
+
+        // Validar preguntas condicionales
+        if (document.getElementById('viajes_internacionales').value === 'si') {
+            const c_tpat = document.getElementById('c_tpat');
+            if (!c_tpat.value.trim()) {
+                alert('Por favor, responde si tienes la certificación C-TPAT.');
+                c_tpat.focus();
+                return false;
+            }
+        }
+
+        if (document.getElementById('anticipo').value === 'si') {
+            const porcentaje = document.getElementById('porcentaje');
+            if (!porcentaje.value.trim()) {
+                alert('Por favor, indica el porcentaje de anticipo que necesitas.');
+                porcentaje.focus();
+                return false;
+            }
+        }
+
+        return true; 
+    }
+
     document.getElementById('submitButton').addEventListener('click', async () => {
+        if (!validarCampos()) return; // Detener si hay campos vacíos
+
         const curp = document.getElementById('curp').value.trim().toUpperCase();
         const rfc = document.getElementById('rfc').value.trim().toUpperCase();
 
@@ -202,11 +243,11 @@
             fecha_inicio: document.getElementById('fecha_inicio').value.trim(),
             fecha_fin: document.getElementById('fecha_fin').value.trim(),
             viajes_internacionales: document.getElementById('viajes_internacionales').value,
-            c_tpat: document.getElementById('viajes_internacionales').value === 'si'
+            c_tpat: document.getElementById('viajes_internacionales').value === 'Si'
                 ? document.getElementById('c_tpat').value
                 : null,
             anticipo: document.getElementById('anticipo').value,
-            porcentaje: document.getElementById('anticipo').value === 'si'
+            porcentaje: document.getElementById('anticipo').value === 'Si'
                 ? document.getElementById('porcentaje').value.trim()
                 : null,
         };
