@@ -96,8 +96,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="ruta-unica">¿La Ruta Es Recurrente?</label>
-                        <select id="ruta-unica" name="ruta-unica" required onchange="mostrarPregunta('ruta-unica', 'frecuencia-mensual-container')">
+                        <label for="ruta-recurrente">¿La Ruta Es Recurrente?</label>
+                        <select id="ruta-recurrente" name="ruta-recurrente" required onchange="mostrarPregunta('ruta-recurrente', 'frecuencia-mensual-container')">
                             <option value="" disabled selected>Selecciona una opción</option>
                             <option value="si">Sí</option>
                             <option value="no">No</option>
@@ -164,7 +164,7 @@
     const requiredFields = [
         'nombre-empresa', 'correo', 'telefono', 'origen', 'destino', 'paga', 
         'carga', 'unidad-requerida', 'peso-transportar', 'ruta-internacional', 
-        'ruta-unica', 'fecha-ruta', 'das-anticipo'
+        'ruta-recurrente', 'fecha-ruta', 'das-anticipo'
     ];
 
     for (let fieldId of requiredFields) {
@@ -212,8 +212,8 @@
             unidad_requerida: document.getElementById('unidad-requerida').value,
             peso_transportar: document.getElementById('peso-transportar').value,
             ruta_internacional: document.getElementById('ruta-internacional').value,
-            ruta_unica: document.getElementById('ruta-unica').value,
-            frecuencia_mensual: document.getElementById('ruta-unica').value === 'no'
+            ruta_recurrente: document.getElementById('ruta-recurrente').value,
+            frecuencia_mensual: document.getElementById('ruta-recurrente').value === 'no'
                 ? document.getElementById('frecuencia-mensual').value
                 : null,
             fecha_ruta: document.getElementById('fecha-ruta').value,
