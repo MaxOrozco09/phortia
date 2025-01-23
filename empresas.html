@@ -64,7 +64,7 @@
                         <input type="text" id="paga" name="paga" required>
                     </div>
                     <div class="form-group">
-                        <label for="das-anticipo">¿Das Anticipo?</label>
+                        <label for="das-anticipo">¿Das anticipo?</label>
                         <select id="das-anticipo" name="das-anticipo" required onchange="mostrarPregunta('das-anticipo', 'porcentaje-anticipo-container')">
                             <option value="" disabled selected>Selecciona una opción</option>
                             <option value="si">Sí</option>
@@ -72,10 +72,9 @@
                         </select>
                     </div>
                     <div class="form-group" id="porcentaje-anticipo-container" style="display: none;">
-                        <label for="porcentaje-anticipo">¿Qué Porcentaje De Anticipo Das?</label>
-                        <input type="number" id="porcentaje-anticipo" name="porcentaje-anticipo" min="0" max="100">
-                    </div>
-                    
+                        <label for="porcentaje-anticipo">¿Qué porcentaje de anticipo das?</label>
+                        <input type="number" id="porcentaje-anticipo" name="porcentaje-anticipo" min="1" max="100">
+                    </div>                    
                     <div class="form-group">
                         <label for="carga">Tipo De Carga:</label>
                         <input type="text" id="carga" name="carga" required>
@@ -155,7 +154,7 @@
         function mostrarPregunta(selectorId, targetId) {
             const selectedValue = document.getElementById(selectorId).value;
             const targetElement = document.getElementById(targetId);
-            if (selectedValue === 'no') {
+            if (selectedValue === 'si') {
                 targetElement.style.display = 'block';
             } else {
                 targetElement.style.display = 'none';
