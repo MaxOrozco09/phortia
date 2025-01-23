@@ -326,6 +326,8 @@ main {
 .registration-form input[type="text"],
 .registration-form input[type="email"],
 .registration-form input[type="tel"],
+.registration-form input[type="number"],
+.registration-form input[type="date"],
 .registration-form input[type="file"] {
     width: 90%; 
     padding: 10px;
@@ -392,3 +394,26 @@ main {
     border-color: #A10327; /* Borde rojo más oscuro al enfocar */
     background-color: #f9f9f9; /* Fondo ligeramente más claro al enfocar */
 }
+
+/* Estilos uniformes para los campos <select> */
+.registration-form select {
+    width: 90%; /* Mismo ancho que los campos de texto */
+    padding: 10px; /* Espaciado interno */
+    font-size: 1em; /* Tamaño de fuente */
+    border: 2px solid #D10531; /* Borde rojo vibrante */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco crema */
+    color: #333; /* Texto principal */
+    outline: none; /* Sin borde azul al seleccionar */
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    font-family: 'Roboto', sans-serif; /* Tipografía */
+    box-sizing: border-box; /* Garantiza que el padding no afecte el ancho total */
+}
+
+.registration-form select:focus {
+    border-color: #A10327; /* Borde rojo más oscuro al enfocar */
+    background-color: #f9f9f9; /* Fondo ligeramente más claro */
+}
+
+
+
