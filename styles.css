@@ -415,5 +415,32 @@ main {
     background-color: #f9f9f9; /* Fondo ligeramente más claro */
 }
 
+/* Estilos para el título de los beneficios */
+.benefits-title {
+    color: red;
+    font-size: 24px;
+    text-align: left; /* Asegura que el título esté alineado a la izquierda */
+}
+
+/* Estilos para la lista de beneficios */
+.benefits-list {
+    list-style-type: disc;
+    padding-left: 20px; /* Espaciado para las viñetas */
+    text-align: left; /* Asegura que los textos estén alineados a la izquierda */
+}
+
+.benefits-list li {
+    margin-bottom: 10px;
+}
+
+/* Estilos para la sección de Misión y Visión */
+.section-content h2 {
+    color: black; /* Asegura que el título esté en negro */
+}
+
+.section-content p {
+    color: black; /* Asegura que el texto de Misión y Visión esté en negro */
+}
+
 
 
