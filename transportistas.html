@@ -49,7 +49,7 @@
                         <input type="email" id="correo" name="correo" required>
                     </div>
                     <div class="form-group">
-                        <label for="telefono">Teléfono de Contacto:</label>
+                        <label for="telefono">Teléfono De Contacto:</label>
                         <input type="tel" id="telefono" name="telefono" maxlength="10" required>
                     </div>
                     <div class="form-group">
@@ -59,21 +59,69 @@
                     <div class="form-group">
                         <label for="rfc">RFC:</label>
                         <input type="text" id="rfc" name="rfc" maxlength="13" required>
-                    </div>                    
+                    </div>
                     <div class="form-group">
-                        <label for="maquinaria">Maquinaria que Manejas:</label>
+                        <label for="maquinaria">Tipo De Unidad Que Manejas:</label>
                         <input type="text" id="maquinaria" name="maquinaria" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ano_transporte">Año De La Unidad:</label>
+                        <input type="number" id="ano_transporte" name="ano_transporte" maxlength="4" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="capacidad_peso">Capacidad De Peso A Transportar (Kilos):</label>
+                        <input type="number" id="capacidad_peso" name="capacidad_peso" required>
                     </div>
                     <div class="form-group">
                         <label for="ubicacion">Ubicación:</label>
                         <input type="text" id="ubicacion" name="ubicacion" placeholder="Escribe el nombre completo. NO uses abreviaturas" required>
                     </div>
                     <div class="form-group">
-                        <label for="destinos">Destinos a Los Que Puede Ir:</label>
+                        <label for="destinos">Destinos A Los Que Puede Ir:</label>
                         <input type="text" id="destinos" name="destinos" placeholder="Divide tus destinos con ','. Ejemplo: Monterrey, Guadalajara" required>
                     </div>
                     <div class="form-group">
-                        <label for="antecedentes">Carta de Antecedentes No Penales:</label>
+                        <label for="frecuencia_ruta">Frecuencia Con La Que Puede Hacer La Ruta (Al Mes):</label>
+                        <input type="number" id="frecuencia_ruta" name="frecuencia_ruta" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_inicio">Fecha En La Que Puedes Comenzar:</label>
+                        <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_fin">Fecha Hasta La Cual Puedes Operar:</label>
+                        <input type="date" id="fecha_fin" name="fecha_fin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="viajes_internacionales">¿Haces Viajes Internacionales?</label>
+                        <select id="viajes_internacionales" name="viajes_internacionales" required onchange="mostrarPregunta('viajes_internacionales', 'certificacion_ctpat')">
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="certificacion_ctpat" style="display: none;">
+                        <label for="c_tpat">¿Tienes La Certificación C-TPAT?</label>
+                        <select id="c_tpat" name="c_tpat" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="anticipo">¿Necesitas Un Anticipo?</label>
+                        <select id="anticipo" name="anticipo" required onchange="mostrarPregunta('anticipo', 'porcentaje_anticipo')">
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="porcentaje_anticipo" style="display: none;">
+                        <label for="porcentaje">¿Qué Porcentaje Necesitas?</label>
+                        <input type="number" id="porcentaje" name="porcentaje" min="0" max="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="antecedentes">Carta De Antecedentes No Penales:</label>
                         <input type="file" id="antecedentes" name="antecedentes" accept=".pdf,.jpg,.jpeg,.png" required>
                     </div>
                     <button type="button" id="submitButton" class="form-button">Enviar Registro</button>
@@ -112,8 +160,17 @@
 
     <!-- Script para manejar el formulario -->
     <script>
+        function mostrarPregunta(selectorId, targetId) {
+            const selectedValue = document.getElementById(selectorId).value;
+            const targetElement = document.getElementById(targetId);
+            if (selectedValue === 'si') {
+                targetElement.style.display = 'block';
+            } else {
+                targetElement.style.display = 'none';
+            }
+        }
+    
         document.getElementById('submitButton').addEventListener('click', async () => {
-            const form = document.getElementById('transportistaForm');
             const curp = document.getElementById('curp').value.trim().toUpperCase();
             const rfc = document.getElementById('rfc').value.trim().toUpperCase();
     
@@ -133,7 +190,7 @@
                 return;
             }
     
-            // Crear el objeto de datos
+            // Obtener datos del formulario
             const formData = {
                 nombre: document.getElementById('nombre').value.trim(),
                 correo: document.getElementById('correo').value.trim(),
@@ -141,24 +198,40 @@
                 curp: curp,
                 rfc: rfc,
                 maquinaria: document.getElementById('maquinaria').value.trim(),
+                ano_transporte: document.getElementById('ano_transporte').value.trim(),
+                capacidad_peso: document.getElementById('capacidad_peso').value.trim(),
                 ubicacion: document.getElementById('ubicacion').value.trim(),
                 destinos: document.getElementById('destinos').value.trim(),
-                antecedentes: document.getElementById('antecedentes').value.trim()
+                frecuencia_ruta: document.getElementById('frecuencia_ruta').value.trim(),
+                fecha_inicio: document.getElementById('fecha_inicio').value.trim(),
+                fecha_fin: document.getElementById('fecha_fin').value.trim(),
+                viajes_internacionales: document.getElementById('viajes_internacionales').value,
+                c_tpat: document.getElementById('viajes_internacionales').value === 'si'
+                    ? document.getElementById('c_tpat').value
+                    : null,
+                anticipo: document.getElementById('anticipo').value,
+                porcentaje: document.getElementById('anticipo').value === 'si'
+                    ? document.getElementById('porcentaje').value.trim()
+                    : null,
+                antecedentes: document.getElementById('antecedentes').files[0] // Captura del archivo
             };
+    
+            // Crear objeto FormData para manejar el archivo y los datos
+            const dataToSend = new FormData();
+            for (const key in formData) {
+                dataToSend.append(key, formData[key]);
+            }
     
             try {
                 const response = await fetch('https://phortia-backend.onrender.com/submit_transportista', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
+                    body: dataToSend // Enviar como FormData para incluir archivos
                 });
     
                 if (response.ok) {
                     const result = await response.json();
                     alert(result.message);
-                    form.reset();
+                    document.getElementById('transportistaForm').reset();
                 } else {
                     alert('Error al registrar el transportista. Intente nuevamente.');
                 }
@@ -168,6 +241,6 @@
             }
         });
     </script>
+    
 </body>
 </html>
-
