@@ -68,6 +68,38 @@
                         <input type="text" id="carga" name="carga" required>
                     </div>
                     <div class="form-group">
+                        <label for="unidad-requerida">¿Qué tipo de unidad requieres?</label>
+                        <input type="text" id="unidad-requerida" name="unidad-requerida" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="peso-transportar">¿Cuánto peso vas a transportar? (Kg)</label>
+                        <input type="number" id="peso-transportar" name="peso-transportar" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ruta-internacional">¿La ruta será internacional?</label>
+                        <select id="ruta-internacional" name="ruta-internacional" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ruta-unica">¿La ruta es de una sola vez?</label>
+                        <select id="ruta-unica" name="ruta-unica" required onchange="mostrarPregunta('ruta-unica', 'frecuencia-mensual-container')">
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="frecuencia-mensual-container" style="display: none;">
+                        <label for="frecuencia-mensual">¿Cuántas veces al mes requieres esta ruta?</label>
+                        <input type="number" id="frecuencia-mensual" name="frecuencia-mensual" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha-ruta">¿Cuándo necesitas que se haga la ruta?</label>
+                        <input type="date" id="fecha-ruta" name="fecha-ruta" required>
+                    </div>
+                    <div class="form-group">
                         <label for="especificaciones">Especificaciones del Transporte Requerido:</label>
                         <textarea id="especificaciones" name="especificaciones" rows="5" required></textarea>
                     </div>
@@ -107,8 +139,46 @@
 
     <!-- Script para manejar el formulario -->
     <script>
-        document.getElementById('submitButton').addEventListener('click', async () => {
-            // Recoger los datos del formulario
+        function mostrarPregunta(selectorId, targetId) {
+            const selectedValue = document.getElementById(selectorId).value;
+            const targetElement = document.getElementById(targetId);
+            if (selectedValue === 'no') {
+                targetElement.style.display = 'block';
+            } else {
+                targetElement.style.display = 'none';
+            }
+        }
+        function validarCamposEmpresa() {
+    const requiredFields = [
+        'nombre-empresa', 'correo', 'telefono', 'origen', 'destino', 'paga', 
+        'carga', 'unidad-requerida', 'peso-transportar', 'ruta-internacional', 
+        'ruta-unica', 'fecha-ruta'
+    ];
+
+    for (let fieldId of requiredFields) {
+        const field = document.getElementById(fieldId);
+        if (!field.value.trim()) {
+            alert(`Por favor, completa el campo: ${field.previousElementSibling.textContent}`);
+            field.focus();
+            return false;
+        }
+    }
+
+    // Validar preguntas condicionales
+    if (document.getElementById('ruta-unica').value === 'no') {
+        const frecuenciaMensual = document.getElementById('frecuencia-mensual');
+        if (!frecuenciaMensual.value.trim()) {
+            alert('Por favor, indica cuántas veces al mes necesitas esta ruta.');
+            frecuenciaMensual.focus();
+            return false;
+        }
+    }
+
+    return true; // Todos los campos están llenos
+}
+
+document.getElementById('submitButton').addEventListener('click', async () => {
+    if (!validarCamposEmpresa()) return; // Detener si hay campos vacíos
             const formData = {
                 nombre_empresa: document.getElementById('nombre-empresa').value,
                 correo: document.getElementById('correo').value,
@@ -117,24 +187,32 @@
                 destino: document.getElementById('destino').value,
                 paga: document.getElementById('paga').value,
                 carga: document.getElementById('carga').value,
-                especificaciones: document.getElementById('especificaciones').value
+                unidad_requerida: document.getElementById('unidad-requerida').value,
+                peso_transportar: document.getElementById('peso-transportar').value,
+                ruta_internacional: document.getElementById('ruta-internacional').value,
+                ruta_unica: document.getElementById('ruta-unica').value,
+                frecuencia_mensual: document.getElementById('ruta-unica').value === 'no'
+                    ? document.getElementById('frecuencia-mensual').value
+                    : null,
+                fecha_ruta: document.getElementById('fecha-ruta').value,
+                especificaciones: document.getElementById('especificaciones').value,
             };
 
             try {
-                // Enviar datos al backend
                 const response = await fetch('https://tu-backend-url.com/submit_empresa', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify(formData),
                 });
 
                 const result = await response.json();
                 if (response.ok) {
-                    alert(result.message); // Éxito
+                    alert(result.message);
+                    document.getElementById('empresaForm').reset();
                 } else {
-                    alert(`Error: ${result.message}`); // Error del servidor
+                    alert(`Error: ${result.message}`);
                 }
             } catch (error) {
                 console.error('Error al registrar la empresa:', error);
