@@ -61,30 +61,8 @@
                         <input type="text" id="rfc" name="rfc" maxlength="13" required>
                     </div>
                     <div class="form-group">
-                    <label for="maquinaria">Tipo De Unidad Que Manejas:</label>
-                    <select id="maquinaria" name="maquinaria" required>
-                        <option value="" disabled selected>Selecciona una opción</option>
-                        <option value="Trailer 53’">Trailer 53’</option>
-                        <option value="Cargo Van 2.5 T">Cargo Van 2.5 T</option>
-                        <option value="Handcarrier">Handcarrier</option>
-                        <option value="Tractocamión">Tractocamión</option>
-                        <option value="Rabón">Rabón</option>
-                        <option value="Trailer 48’">Trailer 48’</option>
-                        <option value="Thortoneta">Thortoneta</option>
-                        <option value="Thorton">Thorton</option>
-                        <option value="Sedán">Sedán</option>
-                        <option value="Motocicleta">Motocicleta</option>
-                        <option value="1.0 T">1.0 T</option>
-                        <option value="Cargo Van 1.5 T">Cargo Van 1.5 T</option>
-                        <option value="Cargo Van 0.6 T">Cargo Van 0.6 T</option>
-                        <option value="Tren">Tren</option>
-                        <option value="Van 750 kg">Van 750 kg</option>
-                        <option value="Furgoneta 750 kg">Furgoneta 750 kg</option>
-                        <option value="4.0 T">4.0 T</option>
-                        <option value="3.5 T">3.5 T</option>
-                        <option value="1.5 T">1.5 T</option>
-                        <option value="Otro">Otro</option>
-                    </select>
+                        <label for="maquinaria">Tipo De Unidad Que Manejas:</label>
+                        <input type="text" id="maquinaria" name="maquinaria" required>
                     </div>
                     <div class="form-group">
                         <label for="ano_transporte">Año De La Unidad:</label>
@@ -96,11 +74,45 @@
                     </div>
                     <div class="form-group">
                         <label for="ubicacion">Ubicación:</label>
-                        <input type="text" id="ubicacion" name="ubicacion" placeholder="Escribe el nombre completo. NO uses abreviaturas" required>
-                    </div>
+                        <select id="ubicacion" name="ubicacion" required>
+                            <option value="" disabled selected>Selecciona tu estado</option>
+                            <option value="Aguascalientes">Aguascalientes</option>
+                            <option value="Baja California">Baja California</option>
+                            <option value="Baja California Sur">Baja California Sur</option>
+                            <option value="Campeche">Campeche</option>
+                            <option value="Chiapas">Chiapas</option>
+                            <option value="Chihuahua">Chihuahua</option>
+                            <option value="Ciudad de México">Ciudad de México</option>
+                            <option value="Coahuila">Coahuila</option>
+                            <option value="Colima">Colima</option>
+                            <option value="Durango">Durango</option>
+                            <option value="Estado de México">Estado de México</option>
+                            <option value="Guanajuato">Guanajuato</option>
+                            <option value="Guerrero">Guerrero</option>
+                            <option value="Hidalgo">Hidalgo</option>
+                            <option value="Jalisco">Jalisco</option>
+                            <option value="Michoacán">Michoacán</option>
+                            <option value="Morelos">Morelos</option>
+                            <option value="Nayarit">Nayarit</option>
+                            <option value="Nuevo León">Nuevo León</option>
+                            <option value="Oaxaca">Oaxaca</option>
+                            <option value="Puebla">Puebla</option>
+                            <option value="Querétaro">Querétaro</option>
+                            <option value="Quintana Roo">Quintana Roo</option>
+                            <option value="San Luis Potosí">San Luis Potosí</option>
+                            <option value="Sinaloa">Sinaloa</option>
+                            <option value="Sonora">Sonora</option>
+                            <option value="Tabasco">Tabasco</option>
+                            <option value="Tamaulipas">Tamaulipas</option>
+                            <option value="Tlaxcala">Tlaxcala</option>
+                            <option value="Veracruz">Veracruz</option>
+                            <option value="Yucatán">Yucatán</option>
+                            <option value="Zacatecas">Zacatecas</option>
+                        </select>
+                    </div>                    
                     <div class="form-group">
-                        <label for="destinos">Destinos A Los Que Puede Ir:</label>
-                        <input type="text" id="destinos" name="destinos" placeholder="Divide tus destinos con ','. Ejemplo: Monterrey, Guadalajara" required>
+                        <label for="destinos">Estados A Los Que Puede Ir:</label>
+                        <input type="text" id="destinos" name="destinos" placeholder="Divide tus destinos con ','. Ejemplo: Jalisco, Puebla" required>
                     </div>
                     <div class="form-group">
                         <label for="frecuencia_ruta">Frecuencia Con La Que Puede Hacer La Ruta (Al Mes):</label>
@@ -177,126 +189,88 @@
     </footer>
 
     <!-- Script para manejar el formulario -->
-<script>
-    function mostrarPregunta(selectorId, targetId) {
-        const selectedValue = document.getElementById(selectorId).value;
-        const targetElement = document.getElementById(targetId);
-        if (selectedValue === 'si') {
-            targetElement.style.display = 'block';
-        } else {
-            targetElement.style.display = 'none';
-        }
-    }
-
-    function validarCampos() {
-        const requiredFields = [
-            'nombre', 'correo', 'telefono', 'curp', 'rfc', 'maquinaria',
-            'ano_transporte', 'capacidad_peso', 'ubicacion', 'destinos',
-            'frecuencia_ruta', 'fecha_inicio', 'fecha_fin', 'viajes_internacionales',
-            'anticipo'
-        ];
-
-        for (let fieldId of requiredFields) {
-            const field = document.getElementById(fieldId);
-            if (!field.value.trim()) {
-                alert(`Por favor, completa el campo: ${field.previousElementSibling.textContent}`);
-                field.focus();
-                return false;
-            }
-        }
-
-        // Validar preguntas condicionales
-        if (document.getElementById('viajes_internacionales').value === 'si') {
-            const c_tpat = document.getElementById('c_tpat');
-            if (!c_tpat.value.trim()) {
-                alert('Por favor, responde si tienes la certificación C-TPAT.');
-                c_tpat.focus();
-                return false;
-            }
-        }
-
-        if (document.getElementById('anticipo').value === 'si') {
-            const porcentaje = document.getElementById('porcentaje');
-            if (!porcentaje.value.trim()) {
-                alert('Por favor, indica el porcentaje de anticipo que necesitas.');
-                porcentaje.focus();
-                return false;
-            }
-        }
-
-        return true; 
-    }
-
-    document.getElementById('submitButton').addEventListener('click', async () => {
-        if (!validarCampos()) return; // Detener si hay campos vacíos
-
-        const curp = document.getElementById('curp').value.trim().toUpperCase();
-        const rfc = document.getElementById('rfc').value.trim().toUpperCase();
-
-        // Validar longitud del CURP y RFC
-        if (curp.length !== 18) {
-            alert("El CURP debe tener exactamente 18 caracteres.");
-            return;
-        }
-        if (rfc.length !== 13) {
-            alert("El RFC debe tener exactamente 13 caracteres.");
-            return;
-        }
-
-        // Validar coincidencia de los primeros 10 caracteres
-        if (curp.substring(0, 10) !== rfc.substring(0, 10)) {
-            alert("El CURP y el RFC no coinciden. Verifique sus datos.");
-            return;
-        }
-
-        // Obtener datos del formulario
-        const formData = {
-            nombre: document.getElementById('nombre').value.trim(),
-            correo: document.getElementById('correo').value.trim(),
-            telefono: document.getElementById('telefono').value.trim(),
-            curp: curp,
-            rfc: rfc,
-            maquinaria: document.getElementById('maquinaria').value.trim(),
-            ano_transporte: document.getElementById('ano_transporte').value.trim(),
-            capacidad_peso: document.getElementById('capacidad_peso').value.trim(),
-            ubicacion: document.getElementById('ubicacion').value.trim(),
-            destinos: document.getElementById('destinos').value.trim(),
-            frecuencia_ruta: document.getElementById('frecuencia_ruta').value.trim(),
-            fecha_inicio: document.getElementById('fecha_inicio').value.trim(),
-            fecha_fin: document.getElementById('fecha_fin').value.trim(),
-            viajes_internacionales: document.getElementById('viajes_internacionales').value,
-            c_tpat: document.getElementById('viajes_internacionales').value === 'si'
-                ? document.getElementById('c_tpat').value
-                : null,
-            anticipo: document.getElementById('anticipo').value,
-            porcentaje: document.getElementById('anticipo').value === 'si'
-                ? document.getElementById('porcentaje').value.trim()
-                : null,
-        };
-
-        try {
-            const response = await fetch('https://phortia-backend.onrender.com/submit_transportista', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json', // Corregido el encabezado
-                },
-                body: JSON.stringify(formData), // Convertir el objeto en JSON
-            });
-
-            if (response.ok) {
-                const result = await response.json();
-                alert(result.message);
-                document.getElementById('transportistaForm').reset(); // Resetear formulario
+    <script>
+        function mostrarPregunta(selectorId, targetId) {
+            const selectedValue = document.getElementById(selectorId).value;
+            const targetElement = document.getElementById(targetId);
+            if (selectedValue === 'si') {
+                targetElement.style.display = 'block';
             } else {
-                alert('Error al registrar el transportista. Intente nuevamente.');
+                targetElement.style.display = 'none';
             }
-        } catch (error) {
-            console.error('Error al enviar los datos:', error);
-            alert('Ocurrió un error. Por favor, intenta de nuevo.');
         }
-    });
-</script>
-
+    
+        document.getElementById('submitButton').addEventListener('click', async () => {
+            const curp = document.getElementById('curp').value.trim().toUpperCase();
+            const rfc = document.getElementById('rfc').value.trim().toUpperCase();
+    
+            // Validar longitud del CURP y RFC
+            if (curp.length !== 18) {
+                alert("El CURP debe tener exactamente 18 caracteres.");
+                return;
+            }
+            if (rfc.length !== 13) {
+                alert("El RFC debe tener exactamente 13 caracteres.");
+                return;
+            }
+    
+            // Validar coincidencia de los primeros 10 caracteres
+            if (curp.substring(0, 10) !== rfc.substring(0, 10)) {
+                alert("El CURP y el RFC no coinciden. Verifique sus datos.");
+                return;
+            }
+    
+            // Obtener datos del formulario
+            const formData = {
+                nombre: document.getElementById('nombre').value.trim(),
+                correo: document.getElementById('correo').value.trim(),
+                telefono: document.getElementById('telefono').value.trim(),
+                curp: curp,
+                rfc: rfc,
+                maquinaria: document.getElementById('maquinaria').value.trim(),
+                ano_transporte: document.getElementById('ano_transporte').value.trim(),
+                capacidad_peso: document.getElementById('capacidad_peso').value.trim(),
+                ubicacion: document.getElementById('ubicacion').value.trim(),
+                destinos: document.getElementById('destinos').value.trim(),
+                frecuencia_ruta: document.getElementById('frecuencia_ruta').value.trim(),
+                fecha_inicio: document.getElementById('fecha_inicio').value.trim(),
+                fecha_fin: document.getElementById('fecha_fin').value.trim(),
+                viajes_internacionales: document.getElementById('viajes_internacionales').value,
+                c_tpat: document.getElementById('viajes_internacionales').value === 'si'
+                    ? document.getElementById('c_tpat').value
+                    : null,
+                anticipo: document.getElementById('anticipo').value,
+                porcentaje: document.getElementById('anticipo').value === 'si'
+                    ? document.getElementById('porcentaje').value.trim()
+                    : null,
+                antecedentes: document.getElementById('antecedentes').files[0] // Captura del archivo
+            };
+    
+            // Crear objeto FormData para manejar el archivo y los datos
+            const dataToSend = new FormData();
+            for (const key in formData) {
+                dataToSend.append(key, formData[key]);
+            }
+    
+            try {
+                const response = await fetch('https://phortia-backend.onrender.com/submit_transportista', {
+                    method: 'POST',
+                    body: dataToSend // Enviar como FormData para incluir archivos
+                });
+    
+                if (response.ok) {
+                    const result = await response.json();
+                    alert(result.message);
+                    document.getElementById('transportistaForm').reset();
+                } else {
+                    alert('Error al registrar el transportista. Intente nuevamente.');
+                }
+            } catch (error) {
+                console.error('Error al enviar los datos:', error);
+                alert('Ocurrió un error. Por favor, intenta de nuevo.');
+            }
+        });
+    </script>
     
 </body>
 </html>
