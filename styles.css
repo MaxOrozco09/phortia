@@ -495,4 +495,18 @@ main {
     }
 }
 
+/* Contenedor de la imagen debajo de la sección */
+.image-container {
+    text-align: center; /* Centrar la imagen */
+    margin-top: 20px;
+}
+
+.section-image {
+    max-width: 100%; /* Asegurarse de que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantener proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar */
+}
+
+
 
