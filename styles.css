@@ -240,7 +240,7 @@ main {
     position: relative;
     z-index: 2;
     text-align: left; /* Alinea texto a la izquierda */
-    color: #FFF4E7; /* Texto blanco crema */
+    color: #FFF4E7; 
     max-width: 350px; 
     padding: 15px; /* Espaciado interno */
     font-family: 'Raleway', sans-serif;
@@ -255,6 +255,7 @@ main {
     font-size: 1.3em; 
     margin: 0;
     color: #fff; 
+    ; 
     font-family: 'Merriweather Sans', sans-serif; 
 }
 
@@ -415,6 +416,7 @@ main {
     background-color: #f9f9f9; /* Fondo ligeramente más claro */
 }
 
+
 /* General styles for the cuadros */
 .cuadro {
     background-color: #FFF4E7; /* Fondo claro para destacar */
@@ -502,12 +504,22 @@ main {
 }
 
 .section-image {
-    max-width: 80%; /* Asegurarse de que la imagen no exceda el ancho del contenedor */
+    max-width: 100%; /* Asegurarse de que la imagen no exceda el ancho del contenedor */
     height: auto; /* Mantener proporción de la imagen */
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar */
 }
 
+/* Reducir el tamaño de las imágenes en las secciones */
+.content-image {
+    max-width: 80%; /* Ajustar el ancho al 80% del contenedor */
+    height: auto; /* Mantener las proporciones de la imagen */
+    margin: 10px auto; /* Agregar espacio alrededor y centrar */
+    display: block; /* Asegurarse de que se comporte como un bloque */
+}
 
-
-
+/* Opcional: bordes y sombras para un diseño más atractivo */
+.content-image {
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
