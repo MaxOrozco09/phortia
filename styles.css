@@ -690,44 +690,51 @@ main {
 /* Responsivo para pantallas medianas */
 @media (max-width: 1024px) {
     .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
     }
 
     .benefit-item {
-        padding: 10px; /* Espaciado reducido */
+        padding: 10px;
+        box-sizing: border-box; 
     }
 
     .benefit-item h3 {
-        font-size: 1.4rem; /* Reducir tamaño del encabezado */
+        font-size: 1.4rem;
     }
 
     .benefit-item p,
     .benefit-item ul {
-        font-size: 12px; /* Reducir tamaño del texto */
+        font-size: 12px; 
     }
 }
 
 /* Responsivo para pantallas pequeñas */
 @media (max-width: 768px) {
     .benefits-grid {
-        grid-template-columns:repeat(2, 1fr); 
+        grid-template-columns: 1fr; 
+        gap: 15px; 
     }
 
     .benefit-item {
-        padding: 10px;
+        padding: 10px; 
+        max-width: 100%; 
+        margin: 0 auto; 
+        box-sizing: border-box; 
     }
 
     .benefit-item img {
-        max-width: 100px; /* Reducir tamaño del icono */
+        max-width: 80px; 
+        margin: 0 auto 10px; 
     }
 
     .benefit-item h3 {
-        font-size: 1.4rem; /* Encabezados más pequeños */
+        font-size: 1.4rem; 
     }
 
     .benefit-item p,
     .benefit-item ul {
-        font-size: 18px;
+        font-size: 14px; 
     }
 }
 
