@@ -605,7 +605,7 @@ main {
     }
 
     .caracteristicas .grid-item h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .caracteristicas .grid-item p,
@@ -734,8 +734,10 @@ main {
     }
 
     .benefit-item h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
+
+    
 
     .benefit-item p,
     .benefit-item ul {
@@ -967,16 +969,16 @@ main {
     }
 
     .section-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .section-description,
     .pilar-content p {
-        font-size: 1.2rem; 
+        font-size: 1rem; 
     }
 
     .pilar-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
 
