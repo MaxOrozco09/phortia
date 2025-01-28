@@ -867,7 +867,7 @@ main {
     border: 2px solid #D10531; /* Borde rojo vibrante */
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    max-width: 900px; /* Ancho máximo */
+    max-width: 950px; /* Ancho máximo */
     margin-left: auto; /* Centrar la sección */
     margin-right: auto; /* Centrar la sección */
 }
