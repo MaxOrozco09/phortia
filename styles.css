@@ -1,4 +1,3 @@
-
 /* General Styles */
 body {
     font-family: 'Raleway', sans-serif;
@@ -10,7 +9,7 @@ body {
 }
 
 header {
-    background-color: #D10531; /* Fondo rojo vibrante */
+    background-color: #840310; /* Fondo rojo vibrante */
     color: #FFF4E7; /* Texto blanco crema */
     text-align: center;
     padding: 4em 2em;
@@ -112,18 +111,6 @@ main {
     display: block;
     border-radius: 6px;
     box-shadow: 0 4px 8px #FFF4E7;
-}
-
-.benefits ul {
-    list-style: disc;
-    padding-left: 15px;
-    text-align: left;
-    margin: 10px auto;
-    max-width: 500px; 
-}
-
-.benefits ul li {
-    margin-bottom: 8px; /* Espacio reducido entre elementos */
 }
 
 /* Footer Styles */
@@ -360,7 +347,7 @@ main {
 }
 
 .registration-form .form-button:hover {
-    background-color: #A10327; /* Fondo rojo más oscuro al pasar el cursor */
+    background-color: #840310; /* Fondo rojo más oscuro al pasar el cursor */
     transform: scale(1.05); /* Efecto de escala al pasar el cursor */
 }
 
@@ -392,7 +379,7 @@ main {
 }
 
 .registration-form textarea:focus {
-    border-color: #A10327; /* Borde rojo más oscuro al enfocar */
+    border-color: #840310; /* Borde rojo más oscuro al enfocar */
     background-color: #f9f9f9; /* Fondo ligeramente más claro al enfocar */
 }
 
@@ -420,7 +407,7 @@ main {
 /* General styles for the cuadros */
 .cuadro {
     background-color: #FFF4E7; /* Fondo claro para destacar */
-    border: 2px solid #d32f2f; /* Borde rojo para consistencia */
+    border: 2px solid #D10531; /* Borde rojo para consistencia */
     border-radius: 8px; /* Bordes redondeados */
     padding: 20px;
     margin: 20px auto; /* Espaciado entre cuadros */
@@ -430,8 +417,8 @@ main {
 
 /* Estilo para títulos principales */
 .section h2 {
-    color: #d32f2f; /* Rojo destacado */
-    font-size: 1.8rem;
+    color: #840310; /* Rojo destacado */
+    font-size: 2rem;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -439,7 +426,7 @@ main {
 /* Contenido dentro de cada cuadro */
 .section-content {
     text-align: left; /* Texto alineado a la izquierda */
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
 }
 
@@ -459,7 +446,7 @@ main {
 
 .column h3 {
     font-size: 1.5rem;
-    color: #d32f2f;
+    color: #D10531;
     margin-bottom: 10px;
 }
 
@@ -467,15 +454,6 @@ main {
     color: #333; /* Texto negro */
 }
 
-/* Lista de beneficios */
-.benefits-list {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-
-.benefits-list li {
-    margin-bottom: 10px;
-}
 
 /* Sombra en las imágenes */
 .content-image {
@@ -518,8 +496,448 @@ main {
     display: block; /* Asegurarse de que se comporte como un bloque */
 }
 
-/* Opcional: bordes y sombras para un diseño más atractivo */
 .content-image {
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
+
+/*Seccion caracteristicas */
+.caracteristicas .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas grandes */
+    gap: 20px; /* Espaciado entre los elementos */
+    margin-top: 20px;
+}
+
+/* Elementos individuales dentro de la cuadrícula */
+.caracteristicas .grid-item {
+    background: #FFF4E7;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+.caracteristicas .grid-item:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+}
+
+/* Imágenes dentro de los elementos */
+.caracteristicas .grid-item img {
+    max-width: 120px;
+    margin: 10px auto;
+}
+.caracteristicas h2 {
+    font-size: 2rem; /* Ajusta el tamaño del texto */
+    color: #840310; /* Opcional: Cambia el color */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Espaciado debajo del título */
+}
+
+/* Encabezados de cada ítem */
+.caracteristicas .grid-item h3 {
+    color: #D10531;
+    margin: 10px 0;
+    font-size: 1.4rem;
+}
+
+/* Textos y listas dentro de los ítems */
+.caracteristicas .grid-item p,
+.caracteristicas .grid-item ul {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.caracteristicas .grid-item ul {
+    list-style-type: disc; /* Viñetas circulares */
+    padding-left: 20px; /* Ajusta el espacio a la izquierda */
+    margin: 10px 0; /* Espaciado superior/inferior */
+}
+
+.caracteristicas .grid-item ul li {
+    margin: 0; /* Sin espacio adicional alrededor del texto */
+    padding: 0; /* Elimina espacio interno */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+
+/* Diseño responsivo para dispositivos móviles */
+@media (max-width: 1024px) {
+    .caracteristicas .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+
+    .caracteristicas .grid-item {
+        padding: 10px; /* Espaciado reducido */
+    }
+
+    .caracteristicas .grid-item h3 {
+        font-size: 1.4rem; /* Reducir tamaño del encabezado */
+    }
+
+    .caracteristicas .grid-item p,
+    .caracteristicas .grid-item ul {
+        font-size: 12px; /* Reducir tamaño del texto */
+    }
+}
+
+@media (max-width: 768px) {
+    .caracteristicas .grid-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .caracteristicas .grid-item {
+        padding: 10px;
+    }
+
+    .caracteristicas .grid-item img {
+        max-width: 40px; /* Reducir tamaño del icono */
+    }
+
+    .caracteristicas .grid-item h3 {
+        font-size: 1.4rem; /* Encabezados más pequeños */
+    }
+
+    .caracteristicas .grid-item p,
+    .caracteristicas .grid-item ul {
+        font-size: 18px;
+    }
+}
+
+/* Sección Beneficios */
+.benefits-section {
+    background-color: #FFF4E7; /* Fondo claro */
+    padding: 50px 20px; /* Espaciado interno */
+    margin-top: 20px;
+    border: 2px solid #D10531; /* Bordes rojo vibrante */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    max-width: 900px; /* Ancho máximo */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Título de la sección */
+.benefits-section h2 {
+    font-size: 2rem; /* Tamaño del título */
+    color: #840310; /* Color rojo oscuro */
+    text-align: center;
+    margin-bottom: 30px; /* Espaciado debajo del título */
+}
+
+/* Cuadrícula de beneficios */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas grandes */
+    gap: 20px; /* Espaciado entre los elementos */
+    margin-top: 20px;
+}
+
+/* Elementos individuales dentro de la cuadrícula */
+.benefit-item {
+    background: #FFF4E7;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+/* Hover para el beneficio */
+.benefit-item:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+}
+
+/* Imágenes dentro de los beneficios */
+.benefit-item img {
+    max-width: 120px; /* Tamaño del icono */
+    margin: 10px auto;
+}
+
+/* Títulos dentro de los beneficios */
+.benefit-item h3 {
+    color: #D10531; /* Color rojo vibrante */
+    margin: 10px 0;
+    font-size: 1.4rem;
+}
+
+/* Textos y listas dentro de los beneficios */
+.benefit-item p,
+.benefit-item ul {
+    font-size: 14px; /* Tamaño del texto */
+    line-height: 1.5;
+    color: #000000; /* Color del texto */
+}
+
+.benefit-item ul {
+    list-style-type: disc; /* Viñetas circulares */
+    padding-left: 20px; /* Ajusta el espacio a la izquierda */
+    margin: 10px 0; /* Espaciado superior/inferior */
+}
+
+.benefit-item ul li {
+    margin: 0; /* Sin espacio adicional alrededor del texto */
+    padding: 0; /* Elimina espacio interno */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Responsivo para pantallas medianas */
+@media (max-width: 1024px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+
+    .benefit-item {
+        padding: 10px; /* Espaciado reducido */
+    }
+
+    .benefit-item h3 {
+        font-size: 1.4rem; /* Reducir tamaño del encabezado */
+    }
+
+    .benefit-item p,
+    .benefit-item ul {
+        font-size: 12px; /* Reducir tamaño del texto */
+    }
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .benefit-item {
+        padding: 10px;
+    }
+
+    .benefit-item img {
+        max-width: 40px; /* Reducir tamaño del icono */
+    }
+
+    .benefit-item h3 {
+        font-size: 1.4rem; /* Encabezados más pequeños */
+    }
+
+    .benefit-item p,
+    .benefit-item ul {
+        font-size: 18px;
+    }
+}
+
+/* Seccion Objetivo, Mision y Vision */
+.objetivo-mision-vision {
+    text-align: center;
+}
+
+/* Estilo de las columnas individuales */
+.objetivo-mision-vision .rectangulo {
+    background-color: #FFF4E7; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin: 10px; /* Espaciado entre rectángulos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animaciones */
+}
+
+/* Hover para elevar el efecto visual */
+.objetivo-mision-vision .rectangulo:hover {
+    transform: translateY(-5px); /* Elevación */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+}
+
+/* Estilo de los encabezados dentro de los rectángulos */
+.objetivo-mision-vision .rectangulo h3 {
+    font-size: 2rem; /* Tamaño del texto */
+    color: #840310; /* Color destacado */
+    margin-bottom: 15px;
+}
+
+/* Estilo del texto */
+.objetivo-mision-vision .rectangulo p {
+    font-size: 1rem; /* Tamaño del texto */
+    color: #000000; /* Color del texto */
+    line-height: 1.6; /* Altura de línea */
+    margin: 0; /* Sin márgenes adicionales */
+}
+
+/* Diseño responsivo para pantallas medianas */
+@media (max-width: 1024px) {
+    .three-columns {
+        display: flex;
+        flex-wrap: wrap; /* Permitir que las columnas se ajusten */
+        justify-content: center; /* Centrar los elementos */
+        gap: 20px;
+    }
+
+    .objetivo-mision-vision .rectangulo {
+        max-width: 300px; /* Ancho máximo para pantallas medianas */
+        margin: 0 auto 20px; /* Centrar y agregar espacio inferior */
+    }
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .three-columns {
+        flex-direction: column; /* Columnas apiladas verticalmente */
+    }
+
+    .objetivo-mision-vision .rectangulo {
+        max-width: 90%; /* Ancho relativo para dispositivos móviles */
+        margin: 0 auto 15px; /* Centrar y espacio inferior */
+    }
+}
+
+/* Sección: Portafolio de Servicios */
+.portafolio-servicios {
+    text-align: center; /* Centra el contenido */
+    background-color: #FFF4E7; /* Fondo claro */
+    padding: 30px 20px; /* Espaciado interno */
+    border: 2px solid #D10531; /* Borde rojo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    max-width: 900px; /* Ancho máximo */
+    margin: 20px auto; /* Centrado en la página */
+}
+
+.portafolio-servicios h2 {
+    font-size: 2rem; /* Tamaño del título */
+    color: #840310; /* Color rojo oscuro */
+    margin-bottom: 20px; /* Espaciado debajo del título */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+.portafolio-servicios .image-container {
+    text-align: center; /* Centrar la imagen */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+.portafolio-servicios .portfolio-image {
+    max-width: 70%; /* Imagen responsive */
+    height: auto; /* Mantiene proporción */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Sección: Pilares Comerciales */
+.pilares-comerciales {
+    background-color: #FFF4E7; /* Fondo claro */
+    padding: 50px 20px; /* Espaciado interno */
+    text-align: center;
+    margin-top: 20px;
+    border: 2px solid #D10531; /* Borde rojo vibrante */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #840310; /* Rojo oscuro */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Sección: Pilares Comerciales */
+.pilares-comerciales {
+    background-color: #FFF4E7; /* Fondo claro */
+    padding: 50px 20px; /* Espaciado interno */
+    text-align: center;
+    margin-top: 20px;
+    border: 2px solid #D10531; /* Borde rojo vibrante */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    max-width: 900px; /* Ancho máximo */
+    margin-left: auto; /* Centrar la sección */
+    margin-right: auto; /* Centrar la sección */
+}
+
+.section-title {
+    font-size: 2rem; /* Tamaño del título */
+    color: #840310; /* Rojo oscuro */
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #333; /* Color del texto descriptivo */
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Contenedor de los pilares */
+.pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+    gap: 20px; /* Espaciado entre los pilares */
+}
+
+.pilar {
+    background-color: #FFF4E7; /* Fondo claro */
+    border: 2px solid #D10531; /* Borde rojo vibrante */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pilar:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+}
+
+.pilar-icon img {
+    width: 100px; /* Tamaño del ícono */
+    margin-bottom: 15px;
+}
+
+.pilar-title {
+    font-size: 1.2rem;
+    color: #D10531; /* Cambiado al rojo oscuro */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.pilar-content p {
+    font-size: 1rem;
+    color: #000000; /* Texto en negro */
+    line-height: 1.5;
+}
+
+
+/* Diseño responsivo */
+@media (max-width: 1024px) {
+    .pilares-grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+
+    .pilar {
+        padding: 15px; /* Reducir el espacio interno */
+    }
+}
+
+@media (max-width: 768px) {
+    .pilares-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .pilar {
+        padding: 15px;
+    }
+}
+
