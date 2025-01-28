@@ -738,6 +738,12 @@ main {
     }
 }
 
+.benefits-section {
+    padding: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
 /* Seccion Objetivo, Mision y Vision */
 .objetivo-mision-vision {
     text-align: center;
