@@ -718,7 +718,7 @@ main {
     }
 
     .benefit-item img {
-        max-width: 40px; /* Reducir tamaño del icono */
+        max-width: 100px; /* Reducir tamaño del icono */
     }
 
     .benefit-item h3 {
