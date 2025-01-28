@@ -587,7 +587,7 @@ main {
 
 @media (max-width: 768px) {
     .caracteristicas .grid-container {
-        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        grid-template-columns: repeat(2, 1fr); /* Una columna en pantallas pequeñas */
     }
 
     .caracteristicas .grid-item {
@@ -690,7 +690,7 @@ main {
 /* Responsivo para pantallas medianas */
 @media (max-width: 1024px) {
     .benefits-grid {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .benefit-item {
@@ -710,7 +710,7 @@ main {
 /* Responsivo para pantallas pequeñas */
 @media (max-width: 768px) {
     .benefits-grid {
-        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        grid-template-columns:repeat(2, 1fr); 
     }
 
     .benefit-item {
@@ -933,11 +933,12 @@ main {
 
 @media (max-width: 768px) {
     .pilares-grid {
-        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        grid-template-columns: repeat(2, 1fr); 
     }
 
     .pilar {
         padding: 15px;
     }
 }
+
 
