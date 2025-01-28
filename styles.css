@@ -923,22 +923,34 @@ main {
 /* Diseño responsivo */
 @media (max-width: 1024px) {
     .pilares-grid {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px; 
     }
 
     .pilar {
-        padding: 15px; /* Reducir el espacio interno */
+        padding: 15px; 
+        max-width: 100%; 
+        box-sizing: border-box; 
     }
 }
 
 @media (max-width: 768px) {
     .pilares-grid {
         grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; 
     }
 
     .pilar {
-        padding: 15px;
+        padding: 10px; 
+        max-width: 100%; 
+        box-sizing: border-box; 
     }
 }
 
+/* Extra para asegurar márgenes en la sección */
+.pilares-comerciales {
+    padding: 20px; 
+    overflow: hidden;
+    box-sizing: border-box; 
+}
 
