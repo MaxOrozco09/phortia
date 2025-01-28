@@ -222,25 +222,66 @@
             }
         }
     
-        document.getElementById('submitButton').addEventListener('click', async () => {
+        function validarCamposTransportista() {
+            const requiredFields = [
+                'nombre', 'correo', 'telefono', 'curp', 'rfc', 'maquinaria', 
+                'ano_transporte', 'capacidad_peso', 'ubicacion', 'destinos', 
+                'frecuencia_ruta', 'fecha_inicio', 'fecha_fin', 'viajes_internacionales', 
+                'anticipo'
+            ];
+    
+            for (let fieldId of requiredFields) {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    alert(`Por favor, completa el campo: ${field.previousElementSibling.textContent}`);
+                    field.focus();
+                    return false;
+                }
+            }
+    
+            // Validar CURP y RFC
             const curp = document.getElementById('curp').value.trim().toUpperCase();
             const rfc = document.getElementById('rfc').value.trim().toUpperCase();
-    
-            // Validar longitud del CURP y RFC
             if (curp.length !== 18) {
                 alert("El CURP debe tener exactamente 18 caracteres.");
-                return;
+                document.getElementById('curp').focus();
+                return false;
             }
             if (rfc.length !== 13) {
                 alert("El RFC debe tener exactamente 13 caracteres.");
-                return;
+                document.getElementById('rfc').focus();
+                return false;
             }
-    
-            // Validar coincidencia de los primeros 10 caracteres
             if (curp.substring(0, 10) !== rfc.substring(0, 10)) {
                 alert("El CURP y el RFC no coinciden. Verifique sus datos.");
-                return;
+                document.getElementById('curp').focus();
+                return false;
             }
+    
+            // Validar preguntas condicionales
+            if (document.getElementById('viajes_internacionales').value === 'si') {
+                const cTpat = document.getElementById('c_tpat');
+                if (!cTpat.value.trim()) {
+                    alert('Por favor, indica el número de certificado C-TPAT.');
+                    cTpat.focus();
+                    return false;
+                }
+            }
+    
+            if (document.getElementById('anticipo').value === 'si') {
+                const porcentajeAnticipo = document.getElementById('porcentaje');
+                if (!porcentajeAnticipo.value.trim()) {
+                    alert('Por favor, indica el porcentaje de anticipo que das.');
+                    porcentajeAnticipo.focus();
+                    return false;
+                }
+            }
+    
+            return true; // Todos los campos están llenos
+        }
+    
+        document.getElementById('submitButton').addEventListener('click', async () => {
+            if (!validarCamposTransportista()) return;
     
             // Obtener datos del formulario
             const formData = {
