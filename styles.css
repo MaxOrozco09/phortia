@@ -595,7 +595,7 @@ main {
     }
 
     .caracteristicas .grid-item img {
-        max-width: 40px; /* Reducir tamaño del icono */
+        max-width: 100px; /* Reducir tamaño del icono */
     }
 
     .caracteristicas .grid-item h3 {
