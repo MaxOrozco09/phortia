@@ -724,7 +724,7 @@ main {
 /* Responsivo para pantallas pequeñas */
 @media (max-width: 768px) {
     .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1;
         gap: 15px; 
     }
 
