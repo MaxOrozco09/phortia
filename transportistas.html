@@ -88,12 +88,72 @@
                     </div>
                     <div class="form-group">
                         <label for="ano_transporte">Año De La Unidad:</label>
-                        <input type="number" id="ano_transporte" name="ano_transporte" maxlength="4" required>
-                    </div>
+                        <select id="ano_transporte" name="ano_transporte" required>
+                            <option value="">Seleccione el año</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
+                            <option value="1992">1992</option>
+                            <option value="1991">1991</option>
+                            <option value="1990">1990</option>
+                        </select>
+                    </div>                    
                     <div class="form-group">
                         <label for="capacidad_peso">Capacidad De Peso A Transportar (Toneladas):</label>
-                        <input type="number" id="capacidad_peso" name="capacidad_peso" required>
-                    </div>
+                        <select id="capacidad_peso" name="capacidad_peso" required>
+                            <option value="">Seleccione una capacidad</option>
+                            <option value="0.5">0.5</option>
+                            <option value="1">1</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                            <option value="2.5">2.5</option>
+                            <option value="3">3</option>
+                            <option value="3.5">3.5</option>
+                            <option value="4">4</option>
+                            <option value="4.5">4.5</option>
+                            <option value="5">5</option>
+                            <option value="5.5">5.5</option>
+                            <option value="6">6</option>
+                            <option value="6.5">6.5</option>
+                            <option value="7">7</option>
+                            <option value="7.5">7.5</option>
+                            <option value="8">8</option>
+                            <option value="8.5">8.5</option>
+                            <option value="9">9</option>
+                            <option value="9.5">9.5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>                    
                     <div class="form-group">
                         <label for="ubicacion">Ubicación:</label>
                         <select id="ubicacion" name="ubicacion" required>
@@ -138,8 +198,25 @@
                     </div>
                     <div class="form-group">
                         <label for="frecuencia_ruta">Frecuencia Con La Que Puede Hacer La Ruta (Al Mes):</label>
-                        <input type="number" id="frecuencia_ruta" name="frecuencia_ruta" min="1" required>
-                    </div>
+                        <select id="frecuencia_ruta" name="frecuencia_ruta" required>
+                            <option value="">Seleccione la frecuencia</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                        </select>
+                    </div>                                      
                     <div class="form-group">
                         <label for="fecha_inicio">Fecha En La Que Puedes Comenzar:</label>
                         <input type="date" id="fecha_inicio" name="fecha_inicio" required>
@@ -288,14 +365,14 @@
                 nombre: document.getElementById('nombre').value.trim(),
                 correo: document.getElementById('correo').value.trim(),
                 telefono: document.getElementById('telefono').value.trim(),
-                curp: curp,
-                rfc: rfc,
+                curp: document.getElementById('curp').value.trim().toUpperCase(),
+                rfc: document.getElementById('rfc').value.trim().toUpperCase(),
                 maquinaria: document.getElementById('maquinaria').value.trim(),
-                ano_transporte: document.getElementById('ano_transporte').value.trim(),
-                capacidad_peso: document.getElementById('capacidad_peso').value.trim(),
+                ano_transporte: parseInt(document.getElementById('ano_transporte').value), // Convertir a número
+                capacidad_peso: parseFloat(document.getElementById('capacidad_peso').value), // Convertir a número decimal
                 ubicacion: document.getElementById('ubicacion').value.trim(),
                 destinos: document.getElementById('destinos').value.trim(),
-                frecuencia_ruta: document.getElementById('frecuencia_ruta').value.trim(),
+                frecuencia_ruta: parseInt(document.getElementById('frecuencia_ruta').value), // Convertir a número
                 fecha_inicio: document.getElementById('fecha_inicio').value.trim(),
                 fecha_fin: document.getElementById('fecha_fin').value.trim(),
                 viajes_internacionales: document.getElementById('viajes_internacionales').value,
@@ -304,9 +381,10 @@
                     : null,
                 anticipo: document.getElementById('anticipo').value,
                 porcentaje: document.getElementById('anticipo').value === 'si'
-                    ? document.getElementById('porcentaje').value.trim()
-                    : null,
+                    ? parseFloat(document.getElementById('porcentaje').value.trim()) || 0
+                 : null, 
             };
+
     
             // Crear objeto FormData para manejar el archivo y los datos
             const dataToSend = new FormData();
