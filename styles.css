@@ -988,3 +988,74 @@ main {
     overflow: hidden;
     box-sizing: border-box;
 }
+
+/* Estilo para la sección de Destinos */
+.registration-form .checkbox-group-container {
+    border: 2px solid #D10531; /* Borde rojo vibrante */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    background-color: #fff; /* Fondo claro */
+    margin-bottom: 15px; /* Separación con otras secciones */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Título de la sección */
+.registration-form .checkbox-group-container label {
+    font-weight: bold;
+    color: #D10531; /* Texto rojo vibrante */
+    margin-bottom: 10px;
+    display: block; /* Para alinear correctamente el texto */
+    font-family: 'Raleway', sans-serif; /* Tipografía */
+}
+
+/* Estilo para los checkboxes */
+.registration-form .checkbox-group-container .checkbox-group {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los checkboxes se distribuyan en varias filas */
+    gap: 10px; /* Espaciado entre los checkboxes */
+    max-height: 200px; /* Altura máxima con scroll */
+    overflow-y: auto; /* Agrega scroll si hay demasiados elementos */
+    padding: 5px; /* Espaciado interno */
+}
+
+/* Estilo de cada checkbox y su etiqueta */
+.registration-form .checkbox-group-container .checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: #333; /* Texto en negro */
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif; /* Tipografía */
+    margin-bottom: 5px; /* Espaciado entre líneas */
+    white-space: nowrap; /* Evita que el texto se divida en dos líneas */
+}
+
+.registration-form .checkbox-group-container .checkbox-group input[type="checkbox"] {
+    appearance: none; /* Ocultar el checkbox predeterminado */
+    width: 18px;
+    height: 18px;
+    border: 2px solid #D10531; /* Borde rojo */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco */
+    margin-right: 8px; /* Espaciado entre el checkbox y el texto */
+    cursor: pointer;
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* Estilo cuando el checkbox está seleccionado */
+.registration-form .checkbox-group-container .checkbox-group input[type="checkbox"]:checked {
+    background-color: #D10531; /* Fondo rojo vibrante */
+    border-color: #A10327; /* Borde más oscuro */
+    position: relative;
+}
+
+/* Agregar un check visual */
+.registration-form .checkbox-group-container .checkbox-group input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: #FFF4E7; /* Texto blanco */
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    left: 4px;
+    top: -1px;
+}
