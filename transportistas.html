@@ -457,6 +457,28 @@
                 alert('Ocurrió un error. Por favor, intenta de nuevo.');
             }
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const checkboxCualquiera = document.querySelector('input[name="destinos[]"][value="Cualquiera"]');
+    const checkboxes = document.querySelectorAll('input[name="destinos[]"]:not([value="Cualquiera"])');
+
+    checkboxCualquiera.addEventListener("change", function () {
+        if (this.checked) {
+            checkboxes.forEach(checkbox => checkbox.checked = true);
+        } else {
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+        }
+    });
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", function () {
+            if (!this.checked) {
+                checkboxCualquiera.checked = false;
+            }
+        });
+    });
+});
+
     </script>
     
 </body>
