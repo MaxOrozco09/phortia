@@ -192,10 +192,44 @@
                             <option value="Zacatecas">Zacatecas</option>
                         </select>
                     </div>                    
-                    <div class="form-group">
-                        <label for="destinos">Estados A Los Que Puede Ir:</label>
-                        <input type="text" id="destinos" name="destinos" placeholder="Divide tus destinos con ','. Ejemplo: Jalisco, Puebla" required>
-                    </div>
+                    <div class="form-group checkbox-group-container">
+                        <label for="destinos">Destinos a los cuales puede ir:</label>
+                        <div id="destinos-container">
+                            <input type="checkbox" name="destinos[]" value="Cualquiera"> Cualquiera<br>
+                            <input type="checkbox" name="destinos[]" value="Aguascalientes"> Aguascalientes<br>
+                            <input type="checkbox" name="destinos[]" value="Baja California"> Baja California<br>
+                            <input type="checkbox" name="destinos[]" value="Baja California Sur"> Baja California Sur<br>
+                            <input type="checkbox" name="destinos[]" value="Campeche"> Campeche<br>
+                            <input type="checkbox" name="destinos[]" value="Chiapas"> Chiapas<br>
+                            <input type="checkbox" name="destinos[]" value="Chihuahua"> Chihuahua<br>
+                            <input type="checkbox" name="destinos[]" value="Coahuila"> Coahuila<br>
+                            <input type="checkbox" name="destinos[]" value="Colima"> Colima<br>
+                            <input type="checkbox" name="destinos[]" value="Ciudad de México"> Ciudad de México<br>
+                            <input type="checkbox" name="destinos[]" value="Durango"> Durango<br>
+                            <input type="checkbox" name="destinos[]" value="Estado de México"> Estado de México<br>
+                            <input type="checkbox" name="destinos[]" value="Guanajuato"> Guanajuato<br>
+                            <input type="checkbox" name="destinos[]" value="Guerrero"> Guerrero<br>
+                            <input type="checkbox" name="destinos[]" value="Hidalgo"> Hidalgo<br>
+                            <input type="checkbox" name="destinos[]" value="Jalisco"> Jalisco<br>
+                            <input type="checkbox" name="destinos[]" value="Michoacán"> Michoacán<br>
+                            <input type="checkbox" name="destinos[]" value="Morelos"> Morelos<br>
+                            <input type="checkbox" name="destinos[]" value="Nayarit"> Nayarit<br>
+                            <input type="checkbox" name="destinos[]" value="Nuevo León"> Nuevo León<br>
+                            <input type="checkbox" name="destinos[]" value="Oaxaca"> Oaxaca<br>
+                            <input type="checkbox" name="destinos[]" value="Puebla"> Puebla<br>
+                            <input type="checkbox" name="destinos[]" value="Querétaro"> Querétaro<br>
+                            <input type="checkbox" name="destinos[]" value="Quintana Roo"> Quintana Roo<br>
+                            <input type="checkbox" name="destinos[]" value="San Luis Potosí"> San Luis Potosí<br>
+                            <input type="checkbox" name="destinos[]" value="Sinaloa"> Sinaloa<br>
+                            <input type="checkbox" name="destinos[]" value="Sonora"> Sonora<br>
+                            <input type="checkbox" name="destinos[]" value="Tabasco"> Tabasco<br>
+                            <input type="checkbox" name="destinos[]" value="Tamaulipas"> Tamaulipas<br>
+                            <input type="checkbox" name="destinos[]" value="Tlaxcala"> Tlaxcala<br>
+                            <input type="checkbox" name="destinos[]" value="Veracruz"> Veracruz<br>
+                            <input type="checkbox" name="destinos[]" value="Yucatán"> Yucatán<br>
+                            <input type="checkbox" name="destinos[]" value="Zacatecas"> Zacatecas<br>
+                        </div>
+                    </div>                                                                          
                     <div class="form-group">
                         <label for="frecuencia_ruta">Frecuencia Con La Que Puede Hacer La Ruta (Al Mes):</label>
                         <select id="frecuencia_ruta" name="frecuencia_ruta" required>
@@ -298,23 +332,30 @@
                 targetElement.style.display = 'none';
             }
         }
-    
+
         function validarCamposTransportista() {
             const requiredFields = [
                 'nombre', 'correo', 'telefono', 'curp', 'rfc', 'maquinaria', 
-                'ano_transporte', 'capacidad_peso', 'ubicacion', 'destinos', 
-                'frecuencia_ruta', 'fecha_inicio', 'fecha_fin', 'viajes_internacionales', 
-                'anticipo'
+                'ano_transporte', 'capacidad_peso', 'ubicacion', 
+                'frecuencia_ruta', 'fecha_inicio', 'fecha_fin', 
+                'viajes_internacionales', 'anticipo'
             ];
-    
+
             for (let fieldId of requiredFields) {
                 const field = document.getElementById(fieldId);
-                if (!field.value.trim()) {
-                    alert(`Por favor, completa el campo: ${field.previousElementSibling.textContent}`);
-                    field.focus();
+                if (!field || !field.value.trim()) {
+                    alert(`Por favor, completa el campo: ${field?.previousElementSibling?.textContent || fieldId}`);
+                    field?.focus();
                     return false;
                 }
             }
+
+    // Validación específica para los checkboxes de destinos
+    const destinosSeleccionados = document.querySelectorAll('input[name="destinos[]"]:checked');
+    if (destinosSeleccionados.length === 0) {
+        alert('Por favor, selecciona al menos un destino.');
+        return false;
+    }
     
             // Validar CURP y RFC
             const curp = document.getElementById('curp').value.trim().toUpperCase();
@@ -371,7 +412,9 @@
                 ano_transporte: parseInt(document.getElementById('ano_transporte').value), // Convertir a número
                 capacidad_peso: parseFloat(document.getElementById('capacidad_peso').value), // Convertir a número decimal
                 ubicacion: document.getElementById('ubicacion').value.trim(),
-                destinos: document.getElementById('destinos').value.trim(),
+                destinos: Array.from(document.querySelectorAll('input[name="destinos[]"]:checked'))
+                            .map(el => el.value)
+                            .join(","), // Obtener los destinos seleccionados y unirlos con comas
                 frecuencia_ruta: parseInt(document.getElementById('frecuencia_ruta').value), // Convertir a número
                 fecha_inicio: document.getElementById('fecha_inicio').value.trim(),
                 fecha_fin: document.getElementById('fecha_fin').value.trim(),
@@ -382,8 +425,9 @@
                 anticipo: document.getElementById('anticipo').value,
                 porcentaje: document.getElementById('anticipo').value === 'si'
                     ? parseFloat(document.getElementById('porcentaje').value.trim()) || 0
-                 : null, 
+                    : null, 
             };
+
 
     
             // Crear objeto FormData para manejar el archivo y los datos
@@ -417,3 +461,4 @@
     
 </body>
 </html>
+
